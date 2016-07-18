@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.37356424, g: 0.3811201, b: 0.35887662, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -90,65 +90,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &136509020
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1000011322135164, guid: bfd0f34fcdc71964e952d8f73eadea5f,
-    type: 2}
-  m_PrefabInternal: {fileID: 651077536}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 136509023}
-  - 114: {fileID: 136509022}
-  - 135: {fileID: 136509021}
-  m_Layer: 8
-  m_Name: Teapot Puzzle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!135 &136509021
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 135000013682841422, guid: bfd0f34fcdc71964e952d8f73eadea5f,
-    type: 2}
-  m_PrefabInternal: {fileID: 651077536}
-  m_GameObject: {fileID: 136509020}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.9904476
-  m_Center: {x: 0.71, y: 0.66, z: 0.15}
---- !u!114 &136509022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000012613274986, guid: bfd0f34fcdc71964e952d8f73eadea5f,
-    type: 2}
-  m_PrefabInternal: {fileID: 651077536}
-  m_GameObject: {fileID: 136509020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8c4462ef03947b47ace9600ace7fb71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  validationTolerance: 10
---- !u!4 &136509023
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4000012997376352, guid: bfd0f34fcdc71964e952d8f73eadea5f,
-    type: 2}
-  m_PrefabInternal: {fileID: 651077536}
-  m_GameObject: {fileID: 136509020}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children:
-  - {fileID: 1857304847}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &522885276
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,121 +167,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!1001 &651077536
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000012997376352, guid: bfd0f34fcdc71964e952d8f73eadea5f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012997376352, guid: bfd0f34fcdc71964e952d8f73eadea5f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012997376352, guid: bfd0f34fcdc71964e952d8f73eadea5f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012997376352, guid: bfd0f34fcdc71964e952d8f73eadea5f, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012997376352, guid: bfd0f34fcdc71964e952d8f73eadea5f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012997376352, guid: bfd0f34fcdc71964e952d8f73eadea5f, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012997376352, guid: bfd0f34fcdc71964e952d8f73eadea5f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012997376352, guid: bfd0f34fcdc71964e952d8f73eadea5f, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011322135164, guid: bfd0f34fcdc71964e952d8f73eadea5f, type: 2}
-      propertyPath: m_Name
-      value: Teapot Puzzle
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bfd0f34fcdc71964e952d8f73eadea5f, type: 2}
-  m_RootGameObject: {fileID: 136509020}
-  m_IsPrefabParent: 0
---- !u!1 &1266976464
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1000013207943572, guid: bfd0f34fcdc71964e952d8f73eadea5f,
-    type: 2}
-  m_PrefabInternal: {fileID: 651077536}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1266976465}
-  - 33: {fileID: 1266976467}
-  - 23: {fileID: 1266976466}
-  m_Layer: 8
-  m_Name: Th_i_re001
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1266976465
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4000012093572300, guid: bfd0f34fcdc71964e952d8f73eadea5f,
-    type: 2}
-  m_PrefabInternal: {fileID: 651077536}
-  m_GameObject: {fileID: 1266976464}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1857304847}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1266976466
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 23000011043013006, guid: bfd0f34fcdc71964e952d8f73eadea5f,
-    type: 2}
-  m_PrefabInternal: {fileID: 651077536}
-  m_GameObject: {fileID: 1266976464}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: e0f099fd766bd2c48a7f0437b0ab1075, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &1266976467
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 33000010166561768, guid: bfd0f34fcdc71964e952d8f73eadea5f,
-    type: 2}
-  m_PrefabInternal: {fileID: 651077536}
-  m_GameObject: {fileID: 1266976464}
-  m_Mesh: {fileID: 4300000, guid: 95e81de9d157a0f4fa4fd938766d99a1, type: 3}
 --- !u!1 &1359996355
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,34 +357,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1857304846
-GameObject:
+--- !u!1001 &1670659318
+Prefab:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1000014147334722, guid: bfd0f34fcdc71964e952d8f73eadea5f,
-    type: 2}
-  m_PrefabInternal: {fileID: 651077536}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1857304847}
-  m_Layer: 8
-  m_Name: tea_pot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1857304847
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4000013822561390, guid: bfd0f34fcdc71964e952d8f73eadea5f,
-    type: 2}
-  m_PrefabInternal: {fileID: 651077536}
-  m_GameObject: {fileID: 1857304846}
-  m_LocalRotation: {x: -0.003822235, y: 0.78003377, z: 0.0047649606, w: 0.6257076}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1266976465}
-  m_Father: {fileID: 136509023}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.7, y: 102.53, z: 0}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000011502728000, guid: d916bb51076c2024d9b14c3143910973, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011502728000, guid: d916bb51076c2024d9b14c3143910973, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011502728000, guid: d916bb51076c2024d9b14c3143910973, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011502728000, guid: d916bb51076c2024d9b14c3143910973, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011502728000, guid: d916bb51076c2024d9b14c3143910973, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011502728000, guid: d916bb51076c2024d9b14c3143910973, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011502728000, guid: d916bb51076c2024d9b14c3143910973, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011502728000, guid: d916bb51076c2024d9b14c3143910973, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013147278706, guid: d916bb51076c2024d9b14c3143910973, type: 2}
+      propertyPath: m_Name
+      value: Teapot Puzzle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d916bb51076c2024d9b14c3143910973, type: 2}
+  m_IsPrefabParent: 0

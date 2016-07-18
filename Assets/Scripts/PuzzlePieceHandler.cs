@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class PuzzlePieceHandler : MonoBehaviour
@@ -19,14 +20,27 @@ public class PuzzlePieceHandler : MonoBehaviour
     };
 
     public float axisTolerance;
+    public Vector3 translationModifier;
+    public Vector3 rotationModifier;
+
+    public static PuzzlePieceHandler instance;
 
     RotationType rotationType;
     MovementType movementType;
     GameObject targetedPuzzlePiece;
+    bool levelCompleted = false;
+
+    void Start()
+    {
+        instance = this;
+    }
 
     void FixedUpdate ()
     {
-        Vector3 mouseDelta = GetMouseDelta();
+        if (levelCompleted)
+            return;
+
+        Vector3 mouseDelta = GetMouseDelta() * Time.fixedDeltaTime;
 
         movementType = GetMovementType();
 
@@ -43,9 +57,7 @@ public class PuzzlePieceHandler : MonoBehaviour
             else if (movementType == MovementType.Rotation)
             {
                 if (rotationType == RotationType.None && mouseDelta != Vector3.zero)
-                {
                     rotationType = GetRotationType(mouseDelta);
-                }
 
                 Vector3 rotationDelta = CorrectRotationDelta(mouseDelta);
                 RotatePuzzlePiece(rotationDelta);
@@ -53,7 +65,10 @@ public class PuzzlePieceHandler : MonoBehaviour
         }
 
         if (targetedPuzzlePiece != null && IsPuzzlePieceTransformValid(targetedPuzzlePiece))
+        {
+            levelCompleted = true;
             GameManager.EndLevel();
+        }
     }
 
     bool IsPuzzlePieceTransformValid(GameObject puzzlePiece)
@@ -66,12 +81,15 @@ public class PuzzlePieceHandler : MonoBehaviour
         if (rotation.y > 180f)
             rotation.y -= 360f;
 
-        float validationTolerance = puzzlePiece.GetComponent<PuzzlePiece>().validationTolerance;
+        float tolerance = puzzlePiece.GetComponent<PuzzlePiece>().validationTolerance;
 
-        bool rotationValidity = (rotation.x >= -validationTolerance && rotation.x <= validationTolerance
-            && rotation.y >= -validationTolerance && rotation.y <= validationTolerance);
+        bool xValid = (rotation.x >= -tolerance && rotation.x <= tolerance) ||
+            (rotation.x - 180f >= -tolerance && rotation.x - 180f <= tolerance);
 
-        return (rotationValidity);
+        bool yValid = (rotation.y >= -tolerance && rotation.y <= tolerance) ||
+            (rotation.y - 180f >= -tolerance && rotation.y - 180f <= tolerance);
+
+        return (xValid && yValid);
     }
 
     void OnMovementBegin()
@@ -112,15 +130,44 @@ public class PuzzlePieceHandler : MonoBehaviour
 
     void    TranslatePuzzlePiece(Vector3 delta)
     {
+        delta.Scale(translationModifier * 2.5f);
+
+        ApplyTranslationConstrains(ref delta);
+
         targetedPuzzlePiece.transform.localPosition += delta;
+    }
+
+    void    ApplyTranslationConstrains(ref Vector3 delta)
+    {
+        Level level = GameManager.currentLevel;
+
+        if (level.HasConstrain(Level.Constrain.NoXTranslation))
+            delta.x = 0;
+
+        if (level.HasConstrain(Level.Constrain.NoYTranslation))
+            delta.y = 0;
     }
 
     void    RotatePuzzlePiece(Vector3 delta)
     {
         delta = new Vector3(delta.y, -delta.x, delta.z);
+        delta.Scale(rotationModifier * 50);
+
+        ApplyRotationConstrains(ref delta);
 
         // Rotation on X is a bit unaligned because we don't look straight.
         targetedPuzzlePiece.transform.Rotate(delta);
+    }
+
+    void    ApplyRotationConstrains(ref Vector3 delta)
+    {
+        Level level = GameManager.currentLevel;
+
+        if (level.HasConstrain(Level.Constrain.NoXRotation))
+            delta.x = 0;
+
+        if (level.HasConstrain(Level.Constrain.NoYRotation))
+            delta.y = 0;
     }
 
     Vector3 GetMouseDelta()

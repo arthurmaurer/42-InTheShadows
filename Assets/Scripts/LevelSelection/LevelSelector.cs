@@ -45,6 +45,8 @@ public class LevelSelector : MonoBehaviour
         _timer = 0f;
         _moveFrom = transform.localPosition;
 
+        Instantiate(Resources.Load("Prefabs/WhooshSound"));
+
         if (moveRight)
         {
             HideCurrentLevelItem();
@@ -111,7 +113,7 @@ public class LevelSelector : MonoBehaviour
 
         foreach (Level level in GameManager.levels)
         {
-            GameObject  levelItem = SpawnLevelItem(level.puzzlePiece);
+            GameObject  levelItem = SpawnLevelItem(level.menuObject);
             ConfigureLevelItem(levelItem, i);
             ++i;
         }
