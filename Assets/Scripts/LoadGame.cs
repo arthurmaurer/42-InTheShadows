@@ -6,6 +6,6 @@ public class LoadGame : MonoBehaviour
     void Start()
     {
         GameManager.Configure();
-        GameManager.StartGame();
+        GameManager.LoadMenu();
     }
 }

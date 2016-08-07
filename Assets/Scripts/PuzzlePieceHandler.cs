@@ -56,40 +56,21 @@ public class PuzzlePieceHandler : MonoBehaviour
                 TranslatePuzzlePiece(mouseDelta);
             else if (movementType == MovementType.Rotation)
             {
-                if (rotationType == RotationType.None && mouseDelta != Vector3.zero)
-                    rotationType = GetRotationType(mouseDelta);
+                // if (rotationType == RotationType.None && mouseDelta != Vector3.zero)
+                    // rotationType = GetRotationType(mouseDelta);
 
                 Vector3 rotationDelta = CorrectRotationDelta(mouseDelta);
                 RotatePuzzlePiece(rotationDelta);
             }
         }
 
-        if (targetedPuzzlePiece != null && IsPuzzlePieceTransformValid(targetedPuzzlePiece))
+        Func<GameObject[], bool> checker = GameManager.currentLevel.checker;
+
+        if (checker(SolvingRoom.instance.pieces))
         {
             levelCompleted = true;
             GameManager.EndLevel();
         }
-    }
-
-    bool IsPuzzlePieceTransformValid(GameObject puzzlePiece)
-    {
-        Vector3 rotation = puzzlePiece.transform.localRotation.eulerAngles;
-
-        if (rotation.x > 180f)
-            rotation.x -= 360f;
-
-        if (rotation.y > 180f)
-            rotation.y -= 360f;
-
-        float tolerance = puzzlePiece.GetComponent<PuzzlePiece>().validationTolerance;
-
-        bool xValid = (rotation.x >= -tolerance && rotation.x <= tolerance) ||
-            (rotation.x - 180f >= -tolerance && rotation.x - 180f <= tolerance);
-
-        bool yValid = (rotation.y >= -tolerance && rotation.y <= tolerance) ||
-            (rotation.y - 180f >= -tolerance && rotation.y - 180f <= tolerance);
-
-        return (xValid && yValid);
     }
 
     void OnMovementBegin()
@@ -131,6 +112,8 @@ public class PuzzlePieceHandler : MonoBehaviour
     void    TranslatePuzzlePiece(Vector3 delta)
     {
         delta.Scale(translationModifier * 2.5f);
+
+        delta = new Vector3(delta.z, delta.y, delta.x);
 
         ApplyTranslationConstrains(ref delta);
 

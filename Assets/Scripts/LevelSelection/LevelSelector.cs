@@ -86,7 +86,12 @@ public class LevelSelector : MonoBehaviour
 
     bool        CanMoveRight()
     {
-        return (_currentLevelItemID < GameManager.levels.Length - 1);
+        if (_currentLevelItemID >= GameManager.levels.Length - 1)
+            return false;
+
+        Level nextLevel = GameManager.levels[_currentLevelItemID + 1];
+
+        return !nextLevel.locked;
     }
 
     bool        CanMoveLeft()
